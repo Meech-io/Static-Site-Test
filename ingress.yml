@@ -12,8 +12,6 @@ spec:
     services:
     - name: static-site
       port: 80
-    middlewares:
-        - name: redirect
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
@@ -31,3 +29,12 @@ spec:
       port: 80
   tls:
     certResolver: default
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  namespace: static-site
+  name: redirect #Needs to be in the same name as the ingress route specifies and needs to be in the same area as the ingressroute - Already attached to ingress route
+spec:
+  redirectScheme:
+    scheme: https
