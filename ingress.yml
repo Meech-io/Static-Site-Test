@@ -9,9 +9,6 @@ spec:
   routes:
   - match: Host(`static-site.meech.io`)
     kind: Rule
-    services:
-    - name: static-site
-      port: 80
     middlewares:
       - name: redirect
 ---
@@ -28,6 +25,6 @@ spec:
     kind: Rule
     services:
     - name: static-site
-      port: 443
+      port: 80
   tls:
     certResolver: default
