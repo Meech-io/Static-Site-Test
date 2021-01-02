@@ -1,0 +1,24 @@
+
+
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: static-site-ingress
+  namespace: cert-manager # This has to be in the cert-manager namespace as it will not see the secretName(cert) in other namespaces 
+  #Would like to know if its possible to call that secret name from another namespace 
+  annotations:
+    kubernetes.io/ingress.class: "static-site"`
+    cert-manager.io/issuer: "letsencrypt-prod"
+spec:
+  rules:
+    - host: static-site.meech.io
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: static-site
+              servicePort: 80
+  tls:
+  - hosts:
+    - static-site.meech.io
+    secretName: static-site-tls
