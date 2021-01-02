@@ -16,7 +16,7 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: static-site-route
+  name: static-site-route-secure
   namespace: static-site
 spec:
   entryPoints:
