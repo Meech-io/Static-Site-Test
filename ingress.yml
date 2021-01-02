@@ -9,8 +9,11 @@ spec:
   routes:
   - match: Host(`static-site.meech.io`)
     kind: Rule
+    services:
+    - name: static-site
+      port: 80
     middlewares:
-      - name: redirect
+        - name: redirect
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
