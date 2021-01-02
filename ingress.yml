@@ -12,13 +12,11 @@ spec:
     services:
     - name: static-site
       port: 80
-    middlewares:
-        - name: redirect
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: static-site-route-secure
+  name: static-site-route
   namespace: static-site
 spec:
   entryPoints:
