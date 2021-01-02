@@ -28,6 +28,6 @@ spec:
     kind: Rule
     services:
     - name: static-site
-      port: 80
+      port: 443
   tls:
     certResolver: default
