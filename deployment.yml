@@ -4,7 +4,7 @@ metadata:
   name: static-site
   namespace: static-site
 spec:
-  replicas: 8
+  replicas: 4
   selector:
     matchLabels:
       app: static-site
